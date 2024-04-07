@@ -4,6 +4,7 @@ import CartContext from '../../store/CartContext';
 import { currencyFormatter } from '../../util/formatting';
 import Button from '../UI/Button/Button';
 import UserProgressContext from '../../store/UserProgressContext';
+import CartItem from '../CartItem/CartItem';
 
 export default function Cart() {
   const cartCtx = useContext(CartContext);
@@ -24,7 +25,14 @@ export default function Cart() {
       <ul>
         {cartCtx.items.map((item) => (
           <li key={item.id}>
-            {item.name} - {item.quantity}
+            <CartItem
+              key={item.id}
+              name={item.name}
+              quantity={item.quantity}
+              price={item.price}
+              onIncrease={() => cartCtx.addItem(item)}
+              onDecrease={() => cartCtx.removeItem(item.id)}
+            />
           </li>
         ))}
       </ul>
