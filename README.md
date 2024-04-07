@@ -1,6 +1,6 @@
 # React form
 
-Food order app in React
+Food order app in React using hooks (useContext, useEffect, useState, useReducer)
 
 ## Run Locally
 
